@@ -2,6 +2,11 @@ FROM python:3.6
 
 RUN pip3 install spiderkeeper
 RUN pip3 install scrapyd
+
+COPY requirements.txt /tmp/
+RUN pip3 install --requirement /tmp/requirements.txt
+COPY . /tmp/
+
 RUN apt-get update
 RUN mkdir /etc/scrapyd/ \
     && echo "[scrapyd] \
