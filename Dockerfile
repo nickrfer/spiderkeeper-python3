@@ -2,6 +2,7 @@ FROM python:3.6
 
 RUN pip3 install spiderkeeper
 RUN pip3 install scrapyd
+RUN pip3 install scrapyd-client
 
 COPY requirements.txt /tmp/
 RUN pip3 install --requirement /tmp/requirements.txt
