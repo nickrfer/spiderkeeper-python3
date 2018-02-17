@@ -9,6 +9,9 @@ RUN pip3 install --requirement /tmp/requirements.txt
 COPY . /tmp/
 
 RUN apt-get update
+RUN apt-get install tzdata --no-cache  &&\
+    ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime &&\
+    echo "Brazil/East" > /etc/timezone
 RUN mkdir /etc/scrapyd/ \
     && echo "[scrapyd] \
             \n bind_address = 0.0.0.0 \
